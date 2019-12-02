@@ -3,6 +3,7 @@ package com.mycar.apirest.resources;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,8 +15,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.mycar.apirest.models.Marca;
 import com.mycar.apirest.repository.MarcaRepository;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
 @RestController
 @RequestMapping(value = "/api")
+@Api(value="API REST Marcas")
+@CrossOrigin(origins="*")
 public class MarcaResource {
 
 	@Autowired
@@ -23,6 +29,7 @@ public class MarcaResource {
 
 	// metodo para buscar todos os dados do banco
 	@GetMapping("/marcas")
+	@ApiOperation(value="Retorna uma lista de Marcas Cadastradas")
 	public List<Marca> listaMarcas() {
 		return marcaRepository.findAll();
 	}
@@ -35,18 +42,21 @@ public class MarcaResource {
 
 	// metodo para salvar o item
 	@PostMapping("/marca")
+	@ApiOperation(value="Salva uma Marca Cadastrada")
 	public Marca salvaMarca(@RequestBody Marca marca) {
 		return marcaRepository.save(marca);
 	}
 
 	// metodo para deletar o item
 	@DeleteMapping("/marca")
+	@ApiOperation(value="Deleta uma Marca Cadastrada")
 	public void deletaMarca(@RequestBody Marca marca) {
 		marcaRepository.delete(marca);
 	}
 
 	// metodo para editar o item
 	@PutMapping("/marca")
+	@ApiOperation(value="Edita uma Marca Cadastrada")
 	public Marca atualizaMarca(@RequestBody Marca marca) {
 		return marcaRepository.save(marca);
 	}
