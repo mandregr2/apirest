@@ -67,8 +67,9 @@ public class AbastecimentoResource {
 	@CrossOrigin
 	@GetMapping("/abastecimentos/{idVeiculo}/{dataIni}/{dataFim}")
 	@ApiOperation(value = "Busca Abastecimento entre datas e do veiculo selecionado")
-	public List<Abastecimento> GetAbastecimento(@PathVariable(value = "idVeiculo") Long idVeiculo, @PathVariable(value = "dataIni") Date dataIni,
-			@PathVariable(value = "dataFim") Date dataFim) {
+	public List<Abastecimento> GetAbastecimento(@PathVariable(value = "idVeiculo") Long idVeiculo, @PathVariable(value = "dataIni") 
+	Date dataIni, @PathVariable(value = "dataFim") Date dataFim) {
+		
 		return (List<Abastecimento>) abastecimentoRepository.findAbastecimentoByIdCarroAndDataAndData(idVeiculo, dataIni, dataFim);
 	}
 }
