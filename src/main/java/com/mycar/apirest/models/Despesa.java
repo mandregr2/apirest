@@ -16,6 +16,8 @@ public class Despesa implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
+    private Long idVeiculo;
+
 	private java.util.Date dataDespesa;
 	private long tipo;
     private double kilometragem;
@@ -50,5 +52,11 @@ public class Despesa implements Serializable {
 	}
 	public void setValorTotal(double valorTotal) {
 		this.valorTotal = valorTotal;
+	}
+	public Long getIdVeiculo() {
+		return idVeiculo;
+	}
+	public void setIdVeiculo(Long idVeiculo) {
+		this.idVeiculo = idVeiculo;
 	}
 }

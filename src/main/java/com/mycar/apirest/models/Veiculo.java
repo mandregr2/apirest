@@ -16,6 +16,7 @@ public class Veiculo implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
+    private Long idUsuario;
     private String tipoVeiculo;
     private String marcaVeiculo;
     private double kilometragem;
@@ -40,6 +41,18 @@ public class Veiculo implements Serializable {
 		this.marcaVeiculo = marcaVeiculo;
 		this.kilometragem = kilometragem;
 		this.placa = placa;
+	}
+
+
+
+	public Long getIdUsuario() {
+		return idUsuario;
+	}
+
+
+
+	public void setIdUsuario(Long idUsuario) {
+		this.idUsuario = idUsuario;
 	}
 
 

@@ -1,11 +1,13 @@
 package com.mycar.apirest.resources;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -34,11 +36,10 @@ public class MarcaResource {
 		return marcaRepository.findAll();
 	}
 
-	// metodo para buscar um unico item
-	// @GetMapping("/marcas/{id}")
-	// public Marca listaMarcaUnica(@PathVariable(value="id") Long id){
-	// return marcaRepository.findById(id);
-	// }
+	 @GetMapping("/marca/{id}")
+	 public Optional<Marca> listaMarcaUnica(@PathVariable(value="id") Long id){
+	 return marcaRepository.findById(id);
+	 }
 
 	// metodo para salvar o item
 	@PostMapping("/marca")

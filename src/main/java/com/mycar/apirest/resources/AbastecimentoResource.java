@@ -1,11 +1,13 @@
 package com.mycar.apirest.resources;
 
+import java.sql.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -60,5 +62,13 @@ public class AbastecimentoResource {
 	@ApiOperation(value = "Edita um Abastecimento Cadastrado")
 	public Abastecimento atualizaAbastecimento(@RequestBody Abastecimento abastecimento) {
 		return abastecimentoRepository.save(abastecimento);
+	}
+	
+	@CrossOrigin
+	@GetMapping("/abastecimentos/{idVeiculo}/{dataIni}/{dataFim}")
+	@ApiOperation(value = "Busca Abastecimento entre datas e do veiculo selecionado")
+	public List<Abastecimento> GetAbastecimento(@PathVariable(value = "idVeiculo") Long idVeiculo, @PathVariable(value = "dataIni") Date dataIni,
+			@PathVariable(value = "dataFim") Date dataFim) {
+		return (List<Abastecimento>) abastecimentoRepository.findAbastecimentoByIdCarroAndDataAndData(idVeiculo, dataIni, dataFim);
 	}
 }
