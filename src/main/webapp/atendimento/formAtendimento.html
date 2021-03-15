@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html >
+<head>
+	<title>Atendimentos</title>
+     <link href="static/imports/imports.html" >
+     
+     </head>
+<body>
+ <link href="static/header/header.html" >
+
+	
+	
+	
+	<th:block th:include="mensagemValidacao"></th:block>
+	<div class="container formEvento">
+	
+	<form class="container" method="post">
+		Nome: <input type="text" value="" name="nome"/>
+		<div class="row">
+			<div class="input-field col s6">
+				Local: <input type="text" value="" name="local"/>
+			</div>
+			<div class="input-field col s3">
+				Data: <input type="date" value="" name="data"/>
+			</div>
+			<div class="input-field col s3">
+				Horario: <input type="time" value="" name="horario"/>
+			</div>
+		</div>
+		<button class="waves-effect waves-light btn" type="submit">Salvar</button>
+	
+	</form>
+	</div>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+</body>
+
+
+</html>
